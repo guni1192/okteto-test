@@ -1,2 +1,5 @@
 deploy:
   - kubectl apply -f nginx-guni1192/
+  - helm repo add vm https://victoriametrics.github.io/helm-charts/
+  - helm repo update
+  - helm install victoria-metrics vm/victoria-metrics-cluster -f monitoring-guni1192/VictoriaMetrics/values.yaml -n monitoring-guni1192
